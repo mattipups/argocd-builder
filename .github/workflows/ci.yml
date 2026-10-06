@@ -18,10 +18,5 @@ jobs:
         with:
           node-version: 20
 
-      - name: Run Build
-        run: node build.js
-
-      - name: Verify Output
-        run: |
-          test -f dist/argocd-builder.html
-          echo "Build erfolgreich verifiziert."
+      - name: Run Tests
+        run: npm test

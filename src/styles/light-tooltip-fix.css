@@ -1,0 +1,12 @@
+/* Light theme tooltip fix */
+body.light-theme .tip:hover::after,
+  body.light-theme .tip:focus::after {
+    background: #ffffff !important;
+    color: #1f2328 !important;
+    border-color: #d0d7de !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+  body.light-theme .tip:hover::before,
+  body.light-theme .tip:focus::before {
+    border-bottom-color: #ffffff !important;
+  }

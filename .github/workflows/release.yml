@@ -18,11 +18,11 @@ jobs:
           node-version: 20
 
       - name: Build Standalone HTML
-        run: node build.js
+        run: npm run build
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/argocd-builder.html
+          files: dist/argocd-builder-v2.3.7.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
