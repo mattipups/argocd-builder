@@ -1,0 +1,8 @@
+<!-- BUILD:STYLES_START -->
+<link rel="stylesheet" href="styles/main.css"/>
+<link rel="stylesheet" href="styles/i18n.css" id="argocd-i18n-style"/>
+<link rel="stylesheet" href="styles/light-tooltip-fix.css" id="argocd-light-tooltip-fix"/>
+<link rel="stylesheet" href="styles/independent-pane-scroll.css" id="independent-pane-scroll"/>
+<link rel="stylesheet" href="styles/tooltip-accessibility.css" id="builder-tooltip-accessibility"/>
+<link rel="stylesheet" href="styles/card-operations.css" id="card-operation-styles"/>
+<!-- BUILD:STYLES_END -->

@@ -4,51 +4,55 @@ Browser-basierter Manifest-Generator für Argo CD Applications, ApplicationSets,
 
 ## Projektstruktur
 
-```
+```text
 argocd-builder/
 ├── .github/
 │   └── workflows/
-│       ├── ci.yml                 # Linting & Build-Test
-│       └── release.yml            # Erzeugt Single-File-Release
+│       ├── ci.yml                     # Automatische Build-Verifikation
+│       └── release.yml                # Standalone-Release-Asset-Erstellung
 ├── assets/
-│   ├── favicon-light.png          # App-Favicon (Light Mode)
-│   ├── favicon-dark.png           # App-Favicon (Dark Mode)
-│   └── apple-touch-icon.png       # Touch Icon
+│   ├── favicon-light.png              # Favicon (Light Theme)
+│   ├── favicon-dark.png               # Favicon (Dark Theme)
+│   └── apple-touch-icon.png           # Touch Icon
 ├── src/
-│   ├── index.html                 # HTML-Formulargerüst
+│   ├── index.html                     # HTML-Formulargerüst
 │   ├── styles/
-│   │   ├── main.css               # Basisstile & Themes
-│   │   ├── layout.css             # Pane-Split & Scroll-Verhalten
-│   │   ├── i18n.css               # Sprachumschalter-Stile
-│   │   ├── tooltips.css           # Tooltips & Barrierefreiheit
-│   │   └── card-operations.css    # Card Action Buttons
+│   │   ├── main.css                   # Hauptstile & Farbschema
+│   │   ├── i18n.css                   # Stile für Lokalisierung
+│   │   ├── light-tooltip-fix.css      # Tooltip-Farbanpassungen
+│   │   ├── independent-pane-scroll.css# Unabhängiges Scrollen Form/YAML
+│   │   ├── tooltip-accessibility.css  # Barrierefreie Tooltips
+│   │   └── card-operations.css        # Card-Action-Buttons
 │   └── js/
 │       ├── vendor/
-│       │   └── yaml.min.js        # Standalone YAML-Parser/Stringifier
+│       │   └── yaml.min.js            # YAML-Parser & Stringifier
 │       ├── core/
-│       │   └── builder-app.js     # Formular-Logik & Manifest-Erzeugung
+│       │   └── builder-app.js         # Anwendungslogik & Manifest-Erzeugung
 │       └── modules/
-│           ├── i18n.js            # Mehrsprachigkeit (DE/EN)
-│           └── git-push.js        # Git-Push-Integration
+│           ├── i18n.js                # Lokalisierung (DE / EN)
+│           └── git-push.js            # Git-Push-Integration
 ├── tests/
 │   └── unit/
-│       └── build.test.js          # Unit-Test für Build-Validierung
-├── build.js                       # Bundler (generiert standalone HTML)
+│       └── build.test.js              # Unit-Test zur Integritätsprüfung
+├── build.js                           # Node.js-Buildskript (generiert 1:1 die Single-File HTML)
 ├── package.json
 └── README.md
 ```
 
 ## Lokale Entwicklung
 
-Die Anwendung kann direkt aus dem Quellverzeichnis entwickelt werden:
-- `src/index.html` direkt im Browser öffnen oder über einen lokalen HTTP-Server (`npx serve src`).
+Die Quelltexte in `src/` können modular bearbeitet werden. Zur Vorschau kann `src/index.html` direkt im Browser oder über einen lokalen HTTP-Server geöffnet werden.
 
-## Standalone Build erstellen
+## Build
 
-Um die monolithische, offline-fähige Single-File-HTML-Datei zu erzeugen:
+Erzeugt die exakte, offline-fähige Single-File-HTML-Datei `dist/argocd-builder-v2.3.7.html`:
 
 ```bash
 npm run build
 ```
 
-Das fertige Artefakt liegt anschließend in `dist/argocd-builder.html`.
+## Testen
+
+```bash
+npm test
+```
