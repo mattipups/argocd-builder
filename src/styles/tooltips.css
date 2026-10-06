@@ -1,0 +1,26 @@
+/* Light theme tooltip fix */
+body.light-theme .tip:hover::after,
+  body.light-theme .tip:focus::after {
+    background:var(--panel);
+    color:var(--text);
+    border-color:var(--border);
+    box-shadow:0 8px 20px rgba(27,37,48,.16);
+  }
+  body.light-theme .tip:hover::before,
+  body.light-theme .tip:focus::before {
+    border-top-color:var(--border);
+  }
+
+/* Accessibility tooltips */
+.tip::before,.tip::after,.tip:hover::before,.tip:hover::after,.tip:focus::before,.tip:focus::after {display:none!important;content:none!important;}
+.tip {min-width:20px;width:20px;height:20px;font-size:12px;touch-action:manipulation;flex-shrink:0;}
+.tip:focus-visible {outline:2px solid var(--blue);outline-offset:3px;}
+.tooltip-sr-only {position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+.builder-tooltip-popup {position:fixed;z-index:2147483000;width:330px;max-width:calc(100vw - 20px);max-height:calc(100dvh - 20px);overflow:auto;box-sizing:border-box;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--panel);color:var(--text);font:400 13px/1.5 system-ui,sans-serif;box-shadow:0 8px 28px rgba(0,0,0,.3);overflow-wrap:anywhere;}
+.builder-tooltip-popup[hidden] {display:none!important;}
+.guide-pane pre {white-space:pre;overflow:auto;font-size:13px;line-height:1.5;}
+.guide-pane nav {display:flex;flex-wrap:wrap;gap:8px 16px;margin:16px 0 24px;}
+.guide-pane h2 {scroll-margin-top:16px;}
+.guide-pane .guide-notice {padding:12px 14px;border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:8px;margin:16px 0;}
+.guide-pane table {width:100%;border-collapse:collapse;margin:12px 0;}
+.guide-pane th,.guide-pane td {padding:9px;vertical-align:top;border-bottom:1px solid var(--border);text-align:left;}

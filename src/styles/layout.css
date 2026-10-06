@@ -1,0 +1,16 @@
+@media (min-width:981px) {
+    body { height:100vh; height:100dvh; min-height:0; overflow:hidden; }
+    main:not([hidden]) { flex:1 1 0; height:auto; min-height:0; overflow:hidden; }
+    .form-pane { min-height:0; overflow-x:hidden; overflow-y:auto; overscroll-behavior-y:contain; }
+    .yaml-pane { min-height:0; overflow:hidden; }
+    pre#yamlOutput { min-height:0; overflow:auto; overscroll-behavior-y:contain; }
+    .guide-pane:not([hidden]) { flex:1 1 0; min-height:0; overflow-y:auto; overscroll-behavior-y:contain; }
+  }
+  @media (max-width:980px) {
+    body { height:auto; min-height:100vh; min-height:100dvh; overflow-x:hidden; overflow-y:auto; }
+    main:not([hidden]) { flex:none; height:auto; min-height:0; overflow:visible; }
+    .form-pane { height:min(68dvh,720px); min-height:260px; overflow-x:hidden; overflow-y:auto; }
+    .yaml-pane { height:min(68dvh,720px); min-height:320px; overflow:hidden; }
+    pre#yamlOutput { min-height:0; max-height:none; overflow:auto; }
+    .guide-pane:not([hidden]) { flex:none; overflow:visible; }
+  }
