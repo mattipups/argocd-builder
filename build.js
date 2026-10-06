@@ -35,7 +35,7 @@ function build() {
     '<style id="builder-tooltip-accessibility">' + styleTipAcc + '</style>\n' +
     '<style id="card-operation-styles">' + styleCardOps + '</style>';
 
-  html = html.replace(/<!-- BUILD:STYLES_START -->[\s\S]*?<!-- BUILD:STYLES_END -->/, () => reconstructedStyles);
+  html = html.replace(/<!-- (BUILD:STYLES_START|STYLES_START) -->[\s\S]*?<!-- (BUILD:STYLES_END|STYLES_END) -->/, () => reconstructedStyles);
 
   // 3. Assemble exact scripts part 1
   const scriptYaml = fs.readFileSync(path.join(__dirname, 'src/js/vendor/yaml.min.js'), 'utf-8');
@@ -45,7 +45,7 @@ function build() {
     '<script>' + scriptYaml + '</script>' +
     '<script>' + scriptApp + '</script>';
 
-  html = html.replace(/<!-- BUILD:SCRIPTS_PART1_START -->[\s\S]*?<!-- BUILD:SCRIPTS_PART1_END -->/, () => reconstructedScripts1);
+  html = html.replace(/<!-- (BUILD:SCRIPTS_PART1_START|SCRIPTS_START) -->[\s\S]*?<!-- (BUILD:SCRIPTS_PART1_END|SCRIPTS_PART1_END) -->/, () => reconstructedScripts1);
 
   // 4. Assemble exact scripts part 2
   const scriptI18n = fs.readFileSync(path.join(__dirname, 'src/js/modules/i18n.js'), 'utf-8');
@@ -55,7 +55,7 @@ function build() {
     '<script id="argocd-i18n">' + scriptI18n + '</script>' +
     '<script id="argocd-git-push">' + scriptGitPush + '</script>';
 
-  html = html.replace(/<!-- BUILD:SCRIPTS_PART2_START -->[\s\S]*?<!-- BUILD:SCRIPTS_PART2_END -->/, () => reconstructedScripts2);
+  html = html.replace(/<!-- (BUILD:SCRIPTS_PART2_START|SCRIPTS_PART2_START) -->[\s\S]*?<!-- (BUILD:SCRIPTS_PART2_END|SCRIPTS_PART2_END) -->/, () => reconstructedScripts2);
 
   const distDir = path.join(__dirname, 'dist');
   fs.mkdirSync(distDir, { recursive: true });
